@@ -120,3 +120,4 @@ def consult_doctor():
         "doctor_link": "https://meet.jit.si/doctor-demo-room",
         "note": "For accurate diagnosis, please consult a doctor."
     }
+#assistant DB
