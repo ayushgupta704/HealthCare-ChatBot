@@ -4,12 +4,17 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
+from functools import lru_cache
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 app = FastAPI()
-model = SentenceTransformer('all-MiniLM-L6-v2')
+
+@lru_cache(maxsize=1)
+def get_model():
+    return SentenceTransformer("all-MiniLM-L6-v2")
+# model = SentenceTransformer('all-MiniLM-L6-v2')
 def get_conn():
     return psycopg2.connect(DATABASE_URL)
 
