@@ -22,7 +22,4 @@ COPY . .
 EXPOSE 8000
 
 # Start with gunicorn + uvicorn worker
-# … other Dockerfile instructions …
-
-# Use sh -c so $PORT is expanded, with a default of 8000 if PORT isn’t set
 CMD ["sh", "-c", "gunicorn -k uvicorn.workers.UvicornWorker main:app --bind=0.0.0.0:${PORT:-8000} --timeout 120"]
