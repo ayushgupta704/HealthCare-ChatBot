@@ -85,4 +85,5 @@ for item in tqdm(schemes, desc="Schemes"):
 conn.commit()
 cur.close()
 conn.close()
-print("✅ All data inserted successfully into Neon DB!")
+print("all data inserted successfully into Neon DB!")
+
